@@ -14,3 +14,10 @@ devlog/
 # Test-generated artifacts
 tests/.tmp-*/
 .claude/
+
+# Local Grok Build App / secrets
+.env
+.env.local
+*.pem
+.grok-build-app/
+pnpm-lock.yaml

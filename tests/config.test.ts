@@ -209,11 +209,13 @@ describe("opencodex config defaults", () => {
     }
   });
 
-  test("uses the default home when OPENCODEX_HOME is unset", () => {
+  test("uses the default home when config home env vars are unset", () => {
     delete process.env.OPENCODEX_HOME;
+    delete process.env.GROK_BUILD_APP_HOME;
+    delete process.env.GBA_HOME;
 
-    expect(getConfigPath()).toBe(join(homedir(), ".opencodex", "config.json"));
-    expect(getPidPath()).toBe(join(homedir(), ".opencodex", "ocx.pid"));
+    expect(getConfigPath()).toBe(join(homedir(), ".grok-build-app", "config.json"));
+    expect(getPidPath()).toBe(join(homedir(), ".grok-build-app", "ocx.pid"));
   });
 
   test("loads UTF-8 BOM config files written by Windows tools", () => {
@@ -261,7 +263,7 @@ describe("opencodex config defaults", () => {
 
       // Merge should fill in missing providers and defaultProvider from defaults
       expect(loaded.port).toBe(10100);
-      expect(loaded.defaultProvider).toBe("openai");
+      expect(loaded.defaultProvider).toBe("xai");
       expect(loaded.providers).toBeDefined();
       // No backup created — config was repaired, not rejected
       const backups = backupNames();

@@ -34,7 +34,7 @@ function hashBelongsToPage(rawHash: string, page: Page): boolean {
 }
 
 const API_BASE = import.meta.env.VITE_API_BASE || "";
-const THEME_KEY = "ocx-theme";
+const THEME_KEY = "gba-theme";
 
 const NAV: { id: Page; tkey: TKey; Icon: typeof IconGrid }[] = [
   { id: "dashboard", tkey: "nav.dashboard", Icon: IconGrid },
@@ -192,7 +192,7 @@ export default function App() {
   const brand = (
     <div className="brand">
       <span className="brand-logo" role="img" aria-label={t("app.logoAria")} />
-      <span className="name">opencodex</span>
+      <span className="name">Grok Build App</span>
       <span className="ver">v{displayedVersion}</span>
     </div>
   );
@@ -257,7 +257,7 @@ export default function App() {
             aria-label={t("dash.stop")} title={t("dash.stop")}>
             <IconPower /> <span className="mode">{stopping ? t("dash.stopping") : t("dash.stop")}</span>
           </button>
-          <a className="sidebar-link" href="https://github.com/lidge-jun/opencodex" target="_blank" rel="noreferrer">
+          <a className="sidebar-link" href="https://github.com/indigoai-us/grok-build-app" target="_blank" rel="noreferrer">
             <IconGithub /> {t("common.github")}
           </a>
         </div>

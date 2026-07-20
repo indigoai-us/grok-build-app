@@ -24,7 +24,7 @@ export const ko: Record<TKey, string> = {
   "lang.label": "언어",
 
   // dashboard
-  "dash.subtitle": "로컬 opencodex 프록시와 프로바이더, 그리고 Codex로 라우팅되는 모델의 실시간 상태입니다.",
+  "dash.subtitle": "로컬 Grok Build App 프록시와 프로바이더, 그리고 Codex로 라우팅되는 모델의 실시간 상태입니다.",
   "dash.status": "상태",
   "dash.online": "온라인",
   "dash.offline": "오프라인",
@@ -46,7 +46,7 @@ export const ko: Record<TKey, string> = {
   "dash.stop": "프록시 중지",
   "dash.stopConfirm": "프록시를 중지하고 Codex 원본 설정을 복원할까요?",
   "dash.stopping": "중지 중…",
-  "dash.codexAutoStart": "Codex 실행 시 opencodex 시작",
+  "dash.codexAutoStart": "Codex 실행 시 Grok Build App 시작",
   "dash.codexAutoStartHint": "켜져 있으면 Codex CLI/App 실행 전 shim이 ocx ensure를 실행합니다. 끄면 Codex를 건드리지 않습니다.",
   "dash.searchModel": "서치 사이드카 모델",
   "dash.searchModelHint": "비-OpenAI 라우팅 모델의 web_search에 사용되는 모델입니다. ChatGPT 로그인 필요.",
@@ -83,16 +83,16 @@ export const ko: Record<TKey, string> = {
   "dash.effortCapHelp": "V2 ultra 모드 턴의 추론 강도를 제한합니다. 설정하면 ultra 모드에서 들어오는 max 요청이 선택한 수준으로 내려갑니다. 서브에이전트 제한은 스폰된 자식 에이전트에만 적용됩니다. 강도를 낮추기만 하고 올리지는 않습니다. 모델이 해당 수준을 지원하지 않으면 가장 가까운 지원 수준으로 내려갑니다.",
   "dash.effortCapNone": "상한 없음",
     "dash.maintenance": "유지보수",
-  "dash.maintenanceHint": "Codex 모델 카탈로그를 새로고침하거나 최신 opencodex 릴리스를 설치합니다.",
+  "dash.maintenanceHint": "Codex 모델 카탈로그를 새로고침하거나 최신 Grok Build App 릴리스를 설치합니다.",
   "dash.syncModels": "모델 동기화",
   "dash.syncing": "동기화 중…",
   "dash.syncOk": "동기화 완료. {count}개 모델이 추가됐습니다.",
   "dash.syncStaleHint": "Codex App에 여전히 예전 목록이 보이면 오래 실행 중인 app-server 프로세스를 재시작하세요.",
   "dash.syncFailed": "동기화 실패: {error}",
-  "dash.projectConfigTitle": "프로젝트 Codex 설정이 OpenCodex를 우회합니다",
-  "dash.projectConfigHint": "저장소 로컬 설정이 OpenCodex 프록시를 덮어씁니다(예: OpenCode Go로 직접 라우팅). 해당 프로젝트에서 ~/.codex/config.toml 프록시를 쓰려면 제거하세요.",
+  "dash.projectConfigTitle": "프로젝트 Codex 설정이 Grok Build App를 우회합니다",
+  "dash.projectConfigHint": "저장소 로컬 설정이 Grok Build App 프록시를 덮어씁니다(예: OpenCode Go로 직접 라우팅). 해당 프로젝트에서 ~/.codex/config.toml 프록시를 쓰려면 제거하세요.",
   "dash.checkUpdate": "업데이트 확인",
-  "dash.updateTitle": "opencodex 업데이트",
+  "dash.updateTitle": "Grok Build App 업데이트",
   "dash.updateDesc": "선택한 채널의 npm 최신 버전을 확인한 뒤, 설치 후 프록시를 재시작할지 선택합니다.",
   "dash.updateChannel": "채널",
   "dash.updateChecking": "업데이트 확인 중…",
@@ -114,13 +114,13 @@ export const ko: Record<TKey, string> = {
   "dash.updateRestartHint": "권장. 프록시를 재시작하기 전까지 현재 GUI는 이전 코드로 계속 실행됩니다.",
   "dash.runUpdate": "업데이트",
   "dash.updateReconnecting": "재시작된 프록시를 기다리는 중…",
-  "dash.updateStatus.running": "opencodex 업데이트 중입니다.",
+  "dash.updateStatus.running": "Grok Build App 업데이트 중입니다.",
   "dash.updateStatus.restarting": "업데이트 설치 완료. 프록시를 재시작하는 중입니다.",
   "dash.updateStatus.succeeded": "업데이트가 완료됐습니다.",
   "dash.updateStatus.failed": "업데이트에 실패했습니다.",
 
   // providers
-  "prov.subtitle": "opencodex가 Codex로 라우팅하는 업스트림 프로바이더를 설정합니다. 계정으로 로그인하거나, 프로바이더를 추가하거나, 원본 설정을 편집하세요.",
+  "prov.subtitle": "Grok Build App가 Codex로 라우팅하는 업스트림 프로바이더를 설정합니다. 계정으로 로그인하거나, 프로바이더를 추가하거나, 원본 설정을 편집하세요.",
   "prov.add": "프로바이더 추가",
   "prov.editJson": "JSON 편집",
   "prov.accountLogin": "계정 로그인",
@@ -207,7 +207,7 @@ export const ko: Record<TKey, string> = {
   "prov.openaiApiSetup": "API 키 설정",
 
   // models
-  "models.subtitle": "Codex가 보는 모델을 켜고 끕니다 — 네이티브 GPT passthrough와 라우팅된 모델을 프로바이더별로 묶어 보여줍니다(헤더를 클릭하면 접힘). 비활성화된 모델은 카탈로그와 모델 선택기에서 숨겨집니다. 변경 사항은 다음 Codex 턴에 적용됩니다 — opencodex가 Codex의 5분 모델 캐시를 무효화하므로 재시작이 필요 없습니다.",
+  "models.subtitle": "Codex가 보는 모델을 켜고 끕니다 — 네이티브 GPT passthrough와 라우팅된 모델을 프로바이더별로 묶어 보여줍니다(헤더를 클릭하면 접힘). 비활성화된 모델은 카탈로그와 모델 선택기에서 숨겨집니다. 변경 사항은 다음 Codex 턴에 적용됩니다 — Grok Build App가 Codex의 5분 모델 캐시를 무효화하므로 재시작이 필요 없습니다.",
   "models.nativeGroupLabel": "OpenAI 네이티브",
   "models.nativeHint": "프로바이더에서 선택한 풀 또는 직접 계정 옵션으로 서빙되는 passthrough 모델입니다. 끄면 Codex 선택기에서 숨겨지고, 카탈로그 항목은 유지되므로 다시 켜면 그대로 복원됩니다.",
   "models.active": "{active}/{total} 활성",
@@ -256,7 +256,7 @@ export const ko: Record<TKey, string> = {
   "models.orderHint": "피커 순서: Subagents에서 지정한 순서 → 나머지 라우팅 모델(프로바이더, 모델 ID 순 알파벳 정렬) → 네이티브 모델. 노출 토글은 모델을 필터링할 뿐 이 순서를 바꾸지 않습니다.",
 
   // subagents
-  "sub.subtitle": "Codex의 {cmd} 는 우선순위 상위 5개 모델만 오버라이드로 노출합니다. 여기서 최대 5개를 선택하면 — 네이티브 gpt 또는 라우팅된 모델 — opencodex가 카탈로그 우선순위를 설정해 정확히 이들이 앞에 옵니다. 다른 모델도 정확한 이름으로 호출할 수 있으며, 이 설정은 표시 항목만 제어합니다.",
+  "sub.subtitle": "Codex의 {cmd} 는 우선순위 상위 5개 모델만 오버라이드로 노출합니다. 여기서 최대 5개를 선택하면 — 네이티브 gpt 또는 라우팅된 모델 — Grok Build App가 카탈로그 우선순위를 설정해 정확히 이들이 앞에 옵니다. 다른 모델도 정확한 이름으로 호출할 수 있으며, 이 설정은 표시 항목만 제어합니다.",
   "sub.featured": "추천",
   "sub.orderHint": "여기서 선택해 표시된 순서가 Codex 모델 피커 최상단 1~5위와 {cmd}의 기본 모델 후보를 결정합니다.",
   "sub.noneSelected": "선택된 항목 없음 — 아래 목록에서 선택하세요.",
@@ -274,7 +274,7 @@ export const ko: Record<TKey, string> = {
 
   // logs
   "logs.title": "요청 로그",
-  "logs.subtitle": "로컬 opencodex 프록시를 거친 최근 요청입니다. 최신순.",
+  "logs.subtitle": "로컬 Grok Build App 프록시를 거친 최근 요청입니다. 최신순.",
   "logs.autoRefresh": "자동 새로고침",
   "logs.noRequests": "아직 요청이 없습니다.",
   "logs.filter.surface.label": "표면",
@@ -484,7 +484,7 @@ export const ko: Record<TKey, string> = {
 
   // api access page
   "api.title": "API 액세스",
-  "api.subtitle": "생성한 API 키로 외부 앱에서 opencodex 프록시에 접근합니다. {authHeader} 또는 {altHeader} 헤더로 인증합니다.",
+  "api.subtitle": "생성한 API 키로 외부 앱에서 Grok Build App 프록시에 접근합니다. {authHeader} 또는 {altHeader} 헤더로 인증합니다.",
   "api.endpoint": "엔드포인트",
   "api.endpointNote": "OpenAI Responses API 형식과 호환됩니다.",
   "api.newKeyTitle": "새 키 생성됨",
@@ -510,7 +510,7 @@ export const ko: Record<TKey, string> = {
   "claude.enabledLabel": "Claude 연결",
   "claude.enabledHint": "끄면 Claude Code가 이 프록시를 사용할 수 없습니다.",
   "claude.authMode": "인증 모드",
-  "claude.authModeHint": "subscription은 Claude 계정 필요, proxy는 opencodex 프록시만으로 사용 가능",
+  "claude.authModeHint": "subscription은 Claude 계정 필요, proxy는 Grok Build App 프록시만으로 사용 가능",
   "claude.authModeSubscription": "Subscription (Claude 계정)",
   "claude.authModeProxy": "Proxy (계정 불필요)",
   "claude.systemEnv": "자동 연결",
@@ -559,7 +559,7 @@ export const ko: Record<TKey, string> = {
   "claude.none": "없음",
   "common.close": "닫기",
   "common.ok": "확인",
-  "app.logoAria": "opencodex 로고",
+  "app.logoAria": "Grok Build App 로고",
   "app.claudeOn": "Claude ON",
   "app.claudeOff": "Claude OFF",
   "usage.dayMon": "월",
@@ -811,7 +811,7 @@ export const ko: Record<TKey, string> = {
   "cws.count.failover": "장애 조치",
   "cws.count.roundRobin": "라운드로빈",
   "cws.howTitle": "동작 방식",
-  "cws.howBody": "Codex에서 combo/<id>를 요청하세요. OpenCodex는 재시도 가능한 업스트림 오류에서만 다음 대상으로 넘깁니다. 사용 가능한 대상이 없으면 전역 기본 프로바이더로 우회하지 않고 요청을 실패 처리합니다.",
+  "cws.howBody": "Codex에서 combo/<id>를 요청하세요. Grok Build App는 재시도 가능한 업스트림 오류에서만 다음 대상으로 넘깁니다. 사용 가능한 대상이 없으면 전역 기본 프로바이더로 우회하지 않고 요청을 실패 처리합니다.",
   "cws.attentionTitle": "확인 필요",
   "cws.attention.empty": "구성된 대상 없음",
   "cws.attention.few": "대상이 하나뿐 — 장애 조치할 곳이 없음",

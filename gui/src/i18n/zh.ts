@@ -24,7 +24,7 @@ export const zh: Record<TKey, string> = {
   "lang.label": "语言",
 
   // dashboard
-  "dash.subtitle": "本地 opencodex 代理、其提供方以及路由到 Codex 的模型的实时状态。",
+  "dash.subtitle": "本地 Grok Build App 代理、其提供方以及路由到 Codex 的模型的实时状态。",
   "dash.status": "状态",
   "dash.online": "在线",
   "dash.offline": "离线",
@@ -46,7 +46,7 @@ export const zh: Record<TKey, string> = {
   "dash.stop": "停止代理",
   "dash.stopConfirm": "停止代理并恢复原生 Codex 配置？",
   "dash.stopping": "正在停止…",
-  "dash.codexAutoStart": "随 Codex 启动 opencodex",
+  "dash.codexAutoStart": "随 Codex 启动 Grok Build App",
   "dash.codexAutoStartHint": "启用后，Codex shim 会在每次 Codex CLI/App 启动前运行 ocx ensure。关闭后不会改动 Codex。",
   "dash.searchModel": "搜索附属模型",
   "dash.searchModelHint": "用于非 OpenAI 路由模型的 web_search 的模型。需要 ChatGPT 登录。",
@@ -83,16 +83,16 @@ export const zh: Record<TKey, string> = {
   "dash.effortCapHelp": "限制 V2 ultra 模式轮次的推理强度。设置后，来自 ultra 模式的 max 请求将被限制到所选级别。子代理限制仅适用于衍生的子代理。只会降低强度，不会提高。如果模型不支持所选级别，将自动降至最近的支持级别。",
   "dash.effortCapNone": "无上限",
     "dash.maintenance": "维护",
-  "dash.maintenanceHint": "刷新 Codex 模型目录，或安装新的 opencodex 版本。",
+  "dash.maintenanceHint": "刷新 Codex 模型目录，或安装新的 Grok Build App 版本。",
   "dash.syncModels": "同步模型",
   "dash.syncing": "同步中…",
   "dash.syncOk": "同步完成。已追加 {count} 个模型。",
   "dash.syncStaleHint": "如果 Codex App 仍显示旧列表，请重启长期运行的 app-server 进程。",
   "dash.syncFailed": "同步失败：{error}",
-  "dash.projectConfigTitle": "项目 Codex 配置绕过了 OpenCodex",
-  "dash.projectConfigHint": "这些仓库级设置会覆盖 OpenCodex 代理（例如直接走 OpenCode Go）。请移除它们，以便该项目使用 ~/.codex/config.toml 的代理路由。",
+  "dash.projectConfigTitle": "项目 Codex 配置绕过了 Grok Build App",
+  "dash.projectConfigHint": "这些仓库级设置会覆盖 Grok Build App 代理（例如直接走 OpenCode Go）。请移除它们，以便该项目使用 ~/.codex/config.toml 的代理路由。",
   "dash.checkUpdate": "检查更新",
-  "dash.updateTitle": "更新 opencodex",
+  "dash.updateTitle": "更新 Grok Build App",
   "dash.updateDesc": "检查所选 npm 频道的最新版本，然后选择安装后是否重启代理。",
   "dash.updateChannel": "频道",
   "dash.updateChecking": "正在检查更新…",
@@ -114,13 +114,13 @@ export const zh: Record<TKey, string> = {
   "dash.updateRestartHint": "推荐开启。代理重启前，当前 GUI 仍运行旧代码。",
   "dash.runUpdate": "更新",
   "dash.updateReconnecting": "正在等待重启后的代理…",
-  "dash.updateStatus.running": "正在更新 opencodex。",
+  "dash.updateStatus.running": "正在更新 Grok Build App。",
   "dash.updateStatus.restarting": "更新已安装。正在重启代理。",
   "dash.updateStatus.succeeded": "更新完成。",
   "dash.updateStatus.failed": "更新失败。",
 
   // providers
-  "prov.subtitle": "配置 opencodex 路由到 Codex 的上游提供方。使用账户登录、添加提供方，或编辑原始配置。",
+  "prov.subtitle": "配置 Grok Build App 路由到 Codex 的上游提供方。使用账户登录、添加提供方，或编辑原始配置。",
   "prov.add": "添加提供方",
   "prov.editJson": "编辑 JSON",
   "prov.accountLogin": "账户登录",
@@ -207,7 +207,7 @@ export const zh: Record<TKey, string> = {
   "prov.openaiApiSetup": "设置 API 密钥",
 
   // models
-  "models.subtitle": "开关 Codex 可见的模型 — 原生 GPT passthrough 与已路由模型按提供方分组（点击标题可折叠）。已禁用的模型会从目录和模型选择器中隐藏。更改在下一个 Codex 回合生效 — opencodex 会使 Codex 的 5 分钟模型缓存失效，因此无需重启。",
+  "models.subtitle": "开关 Codex 可见的模型 — 原生 GPT passthrough 与已路由模型按提供方分组（点击标题可折叠）。已禁用的模型会从目录和模型选择器中隐藏。更改在下一个 Codex 回合生效 — Grok Build App 会使 Codex 的 5 分钟模型缓存失效，因此无需重启。",
   "models.nativeGroupLabel": "OpenAI 原生",
   "models.nativeHint": "Passthrough 模型使用在提供方页面选择的账户池或直连选项。关闭后会从 Codex 选择器中隐藏（目录条目保留，重新开启即可完整恢复）。",
   "models.active": "{active}/{total} 已启用",
@@ -256,7 +256,7 @@ export const zh: Record<TKey, string> = {
   "models.orderHint": "选择器顺序：Subagents 中的选择（按所选顺序）→ 其余已路由模型（依次按提供方、模型 ID 字母排序）→ 原生模型。可见性开关仅用于筛选，不会改变此顺序。",
 
   // subagents
-  "sub.subtitle": "Codex 的 {cmd} 仅将优先级最高的前 5 个模型作为覆盖项公开。在此最多选择 5 个 — 原生 gpt 或已路由模型 — opencodex 会设置它们的目录优先级，使其正好排在前面。其他模型仍可按确切名称调用；此设置仅控制显示项。",
+  "sub.subtitle": "Codex 的 {cmd} 仅将优先级最高的前 5 个模型作为覆盖项公开。在此最多选择 5 个 — 原生 gpt 或已路由模型 — Grok Build App 会设置它们的目录优先级，使其正好排在前面。其他模型仍可按确切名称调用；此设置仅控制显示项。",
   "sub.featured": "精选",
   "sub.orderHint": "此处所选并显示的顺序决定 Codex 模型选择器顶部第 1–5 位，以及 {cmd} 的默认模型候选。",
   "sub.noneSelected": "未选择 — 请从下方列表选择。",
@@ -274,7 +274,7 @@ export const zh: Record<TKey, string> = {
 
   // logs
   "logs.title": "请求日志",
-  "logs.subtitle": "经过本地 opencodex 代理的最近请求，最新在前。",
+  "logs.subtitle": "经过本地 Grok Build App 代理的最近请求，最新在前。",
   "logs.autoRefresh": "自动刷新",
   "logs.noRequests": "暂无请求。",
   "logs.filter.surface.label": "界面",
@@ -484,7 +484,7 @@ export const zh: Record<TKey, string> = {
 
   // api access page
   "api.title": "API 访问",
-  "api.subtitle": "使用生成的 API 密钥从外部应用访问 opencodex 代理。通过 {authHeader} 或 {altHeader} 请求头进行认证。",
+  "api.subtitle": "使用生成的 API 密钥从外部应用访问 Grok Build App 代理。通过 {authHeader} 或 {altHeader} 请求头进行认证。",
   "api.endpoint": "端点",
   "api.endpointNote": "兼容 OpenAI Responses API 格式。",
   "api.newKeyTitle": "已创建新密钥",
@@ -559,7 +559,7 @@ export const zh: Record<TKey, string> = {
   "claude.none": "无",
   "common.close": "关闭",
   "common.ok": "确定",
-  "app.logoAria": "opencodex 徽标",
+  "app.logoAria": "Grok Build App 徽标",
   "app.claudeOn": "Claude 开",
   "app.claudeOff": "Claude 关",
   "usage.dayMon": "一",
@@ -811,7 +811,7 @@ export const zh: Record<TKey, string> = {
   "cws.count.failover": "故障转移",
   "cws.count.roundRobin": "轮询",
   "cws.howTitle": "工作原理",
-  "cws.howBody": "在 Codex 中请求 combo/<id>。OpenCodex 仅在可重试的上游错误时切换目标。若没有可用目标，请求会直接失败，不会回退到全局默认提供方。",
+  "cws.howBody": "在 Codex 中请求 combo/<id>。Grok Build App 仅在可重试的上游错误时切换目标。若没有可用目标，请求会直接失败，不会回退到全局默认提供方。",
   "cws.attentionTitle": "需要关注",
   "cws.attention.empty": "未配置目标",
   "cws.attention.few": "只有一个目标 — 故障转移无处可跳",

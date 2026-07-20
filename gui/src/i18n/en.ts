@@ -19,7 +19,7 @@ export const en = {
   "common.ok": "OK",
   "common.remove": "Remove",
   "common.loading": "Loading…",
-  "app.logoAria": "opencodex logo",
+  "app.logoAria": "Grok Build App logo",
   "app.claudeOn": "Claude ON",
   "app.claudeOff": "Claude OFF",
   "theme.label": "Theme",
@@ -29,7 +29,7 @@ export const en = {
   "lang.label": "Language",
 
   // dashboard
-  "dash.subtitle": "Live status of the local opencodex proxy, its providers, and the models routed into Codex.",
+  "dash.subtitle": "Live status of the local Grok Build App proxy, its providers, and the models routed into Codex.",
   "dash.status": "Status",
   "dash.online": "Online",
   "dash.offline": "Offline",
@@ -51,7 +51,7 @@ export const en = {
   "dash.stop": "Stop Proxy",
   "dash.stopConfirm": "Stop the proxy and restore native Codex?",
   "dash.stopping": "Stopping…",
-  "dash.codexAutoStart": "Start opencodex with Codex",
+  "dash.codexAutoStart": "Start Grok Build App with Codex",
   "dash.codexAutoStartHint": "When enabled, the Codex shim runs ocx ensure before every Codex CLI/App launch. Disable this to leave Codex untouched.",
   "dash.searchModel": "Search sidecar model",
   "dash.searchModelHint": "Model used for web_search on non-OpenAI routed models. Requires ChatGPT login.",
@@ -88,16 +88,16 @@ export const en = {
   "dash.effortCapHelp": "Limits the reasoning effort for V2 ultra-mode turns. When set, incoming max-effort requests (from ultra mode) are capped to the selected level. The sub-agent limit applies only to spawned child agents. Caps only lower effort, never raise it. If a model doesn't support the capped level, it snaps down to the nearest supported level.",
   "dash.effortCapNone": "No cap",
   "dash.maintenance": "Maintenance",
-  "dash.maintenanceHint": "Refresh Codex's model catalog or install a newer opencodex release.",
+  "dash.maintenanceHint": "Refresh Codex's model catalog or install a newer Grok Build App release.",
   "dash.syncModels": "Sync models",
   "dash.syncing": "Syncing…",
   "dash.syncOk": "Sync complete. {count} model(s) appended.",
   "dash.syncStaleHint": "If Codex App still shows an older list, restart its long-lived app-server process.",
   "dash.syncFailed": "Sync failed: {error}",
-  "dash.projectConfigTitle": "Project Codex config bypasses OpenCodex",
-  "dash.projectConfigHint": "These repo-local settings override the OpenCodex proxy (e.g. route to OpenCode Go directly). Remove them so ~/.codex/config.toml routing applies in that project.",
+  "dash.projectConfigTitle": "Project Codex config bypasses Grok Build App",
+  "dash.projectConfigHint": "These repo-local settings override the Grok Build App proxy (e.g. route to OpenCode Go directly). Remove them so ~/.codex/config.toml routing applies in that project.",
   "dash.checkUpdate": "Check update",
-  "dash.updateTitle": "Update opencodex",
+  "dash.updateTitle": "Update Grok Build App",
   "dash.updateDesc": "Check npm for the selected channel, then choose whether to restart the proxy after installation.",
   "dash.updateChannel": "Channel",
   "dash.updateChecking": "Checking for updates…",
@@ -119,13 +119,13 @@ export const en = {
   "dash.updateRestartHint": "Recommended. The current GUI keeps running the old code until the proxy restarts.",
   "dash.runUpdate": "Update",
   "dash.updateReconnecting": "Waiting for the restarted proxy…",
-  "dash.updateStatus.running": "Updating opencodex.",
+  "dash.updateStatus.running": "Updating Grok Build App.",
   "dash.updateStatus.restarting": "Update installed. Restarting proxy.",
   "dash.updateStatus.succeeded": "Update finished.",
   "dash.updateStatus.failed": "Update failed.",
 
   // providers
-  "prov.subtitle": "Configure the upstream providers opencodex routes into Codex. Log in with an account, add a provider, or edit the raw config.",
+  "prov.subtitle": "Configure the upstream providers Grok Build App routes into Codex. Log in with an account, add a provider, or edit the raw config.",
   "prov.add": "Add Provider",
   "prov.editJson": "Edit JSON",
   "prov.accountLogin": "Account login",
@@ -212,7 +212,7 @@ export const en = {
   "prov.openaiApiSetup": "Set up API key",
 
   // models
-  "models.subtitle": "Toggle which models Codex sees — native GPT passthrough and routed providers, grouped by provider (click a header to collapse). Disabled models are hidden from the catalog + model picker. Changes apply on the next Codex turn — opencodex invalidates Codex's 5-min model cache so no restart is needed.",
+  "models.subtitle": "Toggle which models Codex sees — native GPT passthrough and routed providers, grouped by provider (click a header to collapse). Disabled models are hidden from the catalog + model picker. Changes apply on the next Codex turn — Grok Build App invalidates Codex's 5-min model cache so no restart is needed.",
   "models.nativeGroupLabel": "OpenAI native",
   "models.nativeHint": "Passthrough models use the Pool or Direct account option selected on Providers. Toggling one off hides it from the Codex picker (the catalog entry is kept, so re-enabling restores it exactly).",
   "models.active": "{active}/{total} active",
@@ -261,7 +261,7 @@ export const en = {
   "models.orderHint": "Picker order: Subagents picks (in the selected order) → remaining routed models alphabetically by provider, then model ID → native models. Visibility switches only filter models; they do not change this order.",
 
   // subagents
-  "sub.subtitle": "Codex's {cmd} advertises only the first 5 models (by priority) as overrides. Pick up to 5 here — native gpt or routed — and opencodex sets their catalog priority so exactly these lead. Any other model is still callable by its exact name; this only controls what's shown.",
+  "sub.subtitle": "Codex's {cmd} advertises only the first 5 models (by priority) as overrides. Pick up to 5 here — native gpt or routed — and Grok Build App sets their catalog priority so exactly these lead. Any other model is still callable by its exact name; this only controls what's shown.",
   "sub.featured": "Featured",
   "sub.orderHint": "The order shown here sets positions 1–5 at the top of the Codex model picker and the default model candidates for {cmd}.",
   "sub.noneSelected": "None selected — pick from the list below.",
@@ -279,7 +279,7 @@ export const en = {
 
   // logs
   "logs.title": "Request Logs",
-  "logs.subtitle": "Recent requests routed through the local opencodex proxy, newest first.",
+  "logs.subtitle": "Recent requests routed through the local Grok Build App proxy, newest first.",
   "logs.autoRefresh": "Auto-refresh",
   "logs.noRequests": "No requests yet.",
   "logs.filter.surface.label": "Surface",
@@ -712,7 +712,7 @@ export const en = {
 
   // api access page
   "api.title": "API Access",
-  "api.subtitle": "Use generated API keys to access the opencodex proxy from external apps. Keys authenticate via the {authHeader} or {altHeader} header.",
+  "api.subtitle": "Use generated API keys to access the Grok Build App proxy from external apps. Keys authenticate via the {authHeader} or {altHeader} header.",
   "api.endpoint": "Endpoint",
   "api.endpointNote": "Compatible with OpenAI Responses API format.",
   "api.newKeyTitle": "New key created",
@@ -812,7 +812,7 @@ export const en = {
   "cws.count.failover": "Failover",
   "cws.count.roundRobin": "Round-robin",
   "cws.howTitle": "How it works",
-  "cws.howBody": "Ask Codex for combo/<id>. OpenCodex selects a target and hops only on retryable upstream failures. If no target remains available, the request fails closed instead of using the global default provider.",
+  "cws.howBody": "Ask Codex for combo/<id>. Grok Build App selects a target and hops only on retryable upstream failures. If no target remains available, the request fails closed instead of using the global default provider.",
   "cws.attentionTitle": "Needs attention",
   "cws.attention.empty": "No targets configured",
   "cws.attention.few": "Only one target — failover has nowhere to hop",

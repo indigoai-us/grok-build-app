@@ -265,10 +265,22 @@ export function expandUserPath(raw: string): string {
 
 let resolvedConfigDirCache: { raw: string | undefined; path: string } | null = null;
 
+/**
+ * Config home resolution (Grok Build App):
+ * 1. GROK_BUILD_APP_HOME / GBA_HOME / OPENCODEX_HOME (first set wins)
+ * 2. Else ~/.grok-build-app
+ *
+ * OpenCodex users migrate with: `cp -R ~/.opencodex ~/.grok-build-app`
+ * or set OPENCODEX_HOME=~/.opencodex to keep the legacy path explicitly.
+ */
 function resolveConfigDir(): string {
-  const raw = process.env["OPENCODEX_HOME"]?.trim() || undefined;
+  const raw =
+    process.env["GROK_BUILD_APP_HOME"]?.trim()
+    || process.env["GBA_HOME"]?.trim()
+    || process.env["OPENCODEX_HOME"]?.trim()
+    || undefined;
   if (resolvedConfigDirCache && resolvedConfigDirCache.raw === raw) return resolvedConfigDirCache.path;
-  const path = raw ? resolve(expandUserPath(raw)) : join(homedir(), ".opencodex");
+  const path = raw ? resolve(expandUserPath(raw)) : join(homedir(), ".grok-build-app");
   resolvedConfigDirCache = { raw, path };
   return path;
 }
@@ -360,7 +372,7 @@ export function positiveIntegerRecordConfigError(value: unknown, field: string):
 const configSchema = z.object({
   port: z.number().int().min(0).max(65535).default(10100),
   providers: z.record(z.string(), providerConfigSchema),
-  defaultProvider: z.string().min(1).default("openai"),
+  defaultProvider: z.string().min(1).default("xai"),
   openaiProviderTierVersion: z.union([z.literal(1), z.literal(2)]).optional(),
   providerContextCaps: z.record(z.string(), z.number().int().positive()).optional(),
   contextCapValue: z.number().int().positive().optional(),
@@ -636,12 +648,19 @@ export function codexAutoStartEnabled(config: Pick<OcxConfig, "codexAutoStart">)
 }
 
 export function getDefaultConfig(): OcxConfig {
-  // Fresh-install default: works out of the box with Codex's ChatGPT OAuth (no API key).
-  // gpt-* requests forward the caller's incoming OAuth headers to the ChatGPT backend.
-  // Adding extra providers (e.g. opencode-go) and switching defaultProvider is a user/runtime choice.
+  // Fresh-install default (Grok Build App): xAI Grok first-class.
+  // OpenAI Codex ChatGPT forward auth remains available as an optional provider.
+  // Default model for xAI catalog is grok-4.5 (Indigo fleet alignment).
   return {
     port: 10100,
     providers: {
+      xai: {
+        adapter: "openai-chat",
+        baseUrl: "https://api.x.ai/v1",
+        authMode: "key",
+        apiKey: "${XAI_API_KEY}",
+        defaultModel: "grok-4.5",
+      },
       openai: {
         adapter: "openai-responses",
         baseUrl: "https://chatgpt.com/backend-api/codex",
@@ -649,7 +668,7 @@ export function getDefaultConfig(): OcxConfig {
         codexAccountMode: "pool",
       },
     },
-    defaultProvider: "openai",
+    defaultProvider: "xai",
     subagentModels: [...DEFAULT_SUBAGENT_MODELS],
     websockets: false,
     codexAutoStart: true,
@@ -821,7 +840,8 @@ export function isOcxStartCommandLine(commandLine: string): boolean {
   const hasOcxEntrypoint = normalized.includes("src/cli.ts")
     || normalized.includes("src/cli/index.ts")
     || normalized.includes("@bitkyc08/opencodex")
-    || /(?:^|[\s/"'])(?:ocx|opencodex)(?:\.cmd)?(?:$|[\s"'])/.test(normalized);
+    || normalized.includes("@indigoai-us/grok-build-app")
+    || /(?:^|[\s/"'])(?:ocx|opencodex|gba|grok-build-app)(?:\.cmd)?(?:$|[\s"'])/.test(normalized);
   return hasOcxEntrypoint && /(?:^|[\s"'])start(?:$|[\s"'])/.test(normalized);
 }
 

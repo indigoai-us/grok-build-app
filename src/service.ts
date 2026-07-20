@@ -53,13 +53,13 @@ function serviceStatePath(): string {
   return join(getConfigDir(), "service-state.json");
 }
 
-function defaultOpenCodexHome(): string {
-  return resolve(join(homedir(), ".opencodex"));
+function defaultProductHome(): string {
+  return resolve(join(homedir(), ".grok-build-app"));
 }
 
 function serviceStatePaths(): string[] {
   const paths = [serviceStatePath()];
-  const defaultPath = join(defaultOpenCodexHome(), "service-state.json");
+  const defaultPath = join(defaultProductHome(), "service-state.json");
   if (normalizePathForCompare(defaultPath) !== normalizePathForCompare(paths[0])) paths.push(defaultPath);
   return paths;
 }
@@ -340,7 +340,7 @@ export function buildWindowsTaskXml(script = windowsServiceScriptPath()): string
   return `<?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>
-    <Description>OpenCodex proxy service wrapper</Description>
+    <Description>Grok Build App proxy service wrapper</Description>
   </RegistrationInfo>
   <Triggers>
     <LogonTrigger>
@@ -480,7 +480,7 @@ export function buildUnit(): string {
     opencodexHome,
   ].filter((line): line is string => Boolean(line)).join("\n");
   return `[Unit]
-Description=OpenCodex Proxy Server
+Description=Grok Build App Proxy Server
 After=network-online.target
 Wants=network-online.target
 

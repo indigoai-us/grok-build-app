@@ -90,9 +90,19 @@ describe.skipIf(!runnable)("ocx launcher graceful shutdown", () => {
         child.on("exit", () => { exited = true; });
 
         // 1. Proxy comes up + injected the Codex config (Design B root override on loopback).
+        // Health can succeed before catalog sync + inject finish (especially with live model
+        // discovery on the Grok-first default provider set) — wait for the inject marker.
         const up = await waitUntil(() => healthy(port), 20_000);
         expect(up).toBe(true);
         expect(existsSync(join(home, "ocx.pid"))).toBe(true);
+        const injectedOk = await waitUntil(async () => {
+          try {
+            return readFileSync(codexConfig, "utf8").includes("# Auto-injected by opencodex");
+          } catch {
+            return false;
+          }
+        }, 20_000);
+        expect(injectedOk).toBe(true);
         const injected = readFileSync(codexConfig, "utf8");
         expect(injected).toContain("# Auto-injected by opencodex");
         expect(injected).toContain(`openai_base_url = "http://127.0.0.1:${port}/v1"`);

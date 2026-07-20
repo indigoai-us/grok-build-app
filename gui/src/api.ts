@@ -1,4 +1,4 @@
-const TOKEN_KEY = "opencodex-api-token";
+const TOKEN_KEY = "gba-api-token";
 
 let installed = false;
 let promptInFlight: Promise<string | null> | null = null;
@@ -44,7 +44,7 @@ function withToken(input: RequestInfo | URL, init: RequestInit | undefined, toke
 async function promptForToken(): Promise<string | null> {
   if (promptInFlight) return promptInFlight;
   promptInFlight = Promise.resolve()
-    .then(() => window.prompt("OpenCodex API token")?.trim() || null)
+    .then(() => window.prompt("Grok Build App API token")?.trim() || null)
     .finally(() => { promptInFlight = null; });
   return promptInFlight;
 }
